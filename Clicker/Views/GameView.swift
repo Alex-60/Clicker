@@ -7,18 +7,17 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct GameView: View {
     @State var numberOfClick = 0
     @State var gameIsInProgress = false
-    @State var currentPlayer = ""
-    @State var playerList: [Player] = []
-    @AppStorage("bestScore") var bestScore = 0
-    @AppStorage("playerBestScoreName") var playerBestScoreName = ""
+    @AppStorage("currentPlayer") var currentPlayer = ""
+
+    @StateObject var gameManager = GameManager()
 
     var body: some View {
         VStack {
-            if bestScore > 0 {
-                BestScoreView(title: "Meilleur Score", newBestScore: $bestScore, playerName: $playerBestScoreName)
+            if gameManager.bestScore > 0 {
+                BestScoreView(title: "Meilleur Score", bestScore: gameManager.bestScore, playerNameBestScore: gameManager.playerBestScoreName)
             }
             if gameIsInProgress {
                 Text("Joueur actuel : \(currentPlayer)")
@@ -34,9 +33,9 @@ struct ContentView: View {
                     if currentPlayer.count >= 3 {
                         Button("Nouvelle partie", action: initGame)
                     }
-                    PlayersListView(playerList: playerList)
-                    if playerList.count > 0 {
-                        Button("Supprimer les scores", action: removePlayerList)
+                    PlayersListView(playerList: gameManager.playerList)
+                    if gameManager.playerList.count > 0 {
+                        Button("Supprimer les scores", action: gameManager.removePlayerList)
                     }
                 }
             }
@@ -53,23 +52,13 @@ struct ContentView: View {
 
     func gameDidFinish() {
         gameIsInProgress = false
-        if numberOfClick >= bestScore {
-            bestScore = numberOfClick
-            playerBestScoreName = currentPlayer
-        }
-        playerList.append(Player(name: currentPlayer,
-                                 score: numberOfClick))
-    }
-
-    func removePlayerList() {
-        bestScore = 0
-        playerList.removeAll()
+        gameManager.gameDidFinish(click: numberOfClick, player: currentPlayer)
     }
 
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        GameView()
     }
 }

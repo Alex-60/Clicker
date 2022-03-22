@@ -9,14 +9,14 @@ import SwiftUI
 
 struct BestScoreView: View {
     let title: String
-    @Binding var newBestScore: Int
-    @Binding var playerName: String
+    var bestScore: Int
+    var playerNameBestScore: String
 
     var body: some View {
         VStack {
-            Text("\(title) : \(newBestScore)")
+            Text("\(title) : \(bestScore)")
                 .font(.title)
-            Text("Réalisé par : \(playerName)")
+            Text("Réalisé par : \(playerNameBestScore)")
         }
         .padding()
     }
@@ -26,9 +26,9 @@ struct BestScoreView: View {
 struct BestScoreView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            BestScoreView(title: "Meilleur scrore", newBestScore: .constant(5), playerName: .constant("Alex"))
+            BestScoreView(title: "Meilleur scrore", bestScore: 10, playerNameBestScore: "Alex")
                 .previewLayout(.sizeThatFits)
-            BestScoreView(title: "Meilleur scrore", newBestScore: .constant(5), playerName: .constant("Alex"))
+            BestScoreView(title: "Meilleur scrore", bestScore: 10, playerNameBestScore: "Alex")
                 .preferredColorScheme(.dark)
                 .previewLayout(.sizeThatFits)
         }

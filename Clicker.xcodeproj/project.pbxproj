@@ -10,12 +10,13 @@
 		57A6DA9027BE908E00A90362 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A6DA8F27BE908E00A90362 /* Player.swift */; };
 		57A6DA9327BEA78D00A90362 /* PlayersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A6DA9227BEA78D00A90362 /* PlayersListView.swift */; };
 		57BE90B927B3C0C1007D4A50 /* ClickerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BE90B827B3C0C1007D4A50 /* ClickerApp.swift */; };
-		57BE90BB27B3C0C1007D4A50 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BE90BA27B3C0C1007D4A50 /* ContentView.swift */; };
+		57BE90BB27B3C0C1007D4A50 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BE90BA27B3C0C1007D4A50 /* GameView.swift */; };
 		57BE90BD27B3C0C7007D4A50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57BE90BC27B3C0C7007D4A50 /* Assets.xcassets */; };
 		57BE90C027B3C0C7007D4A50 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57BE90BF27B3C0C7007D4A50 /* Preview Assets.xcassets */; };
 		57BE90C927B51F98007D4A50 /* BestScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BE90C827B51F98007D4A50 /* BestScoreView.swift */; };
 		57BE90CB27B52A3E007D4A50 /* ScoreInProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BE90CA27B52A3E007D4A50 /* ScoreInProgressView.swift */; };
 		57BE90CD27B52AFD007D4A50 /* GameInProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BE90CC27B52AFD007D4A50 /* GameInProgressView.swift */; };
+		57CA730D27E9E793007F14C6 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA730C27E9E793007F14C6 /* GameManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,12 +24,13 @@
 		57A6DA9227BEA78D00A90362 /* PlayersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListView.swift; sourceTree = "<group>"; };
 		57BE90B527B3C0C1007D4A50 /* Clicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57BE90B827B3C0C1007D4A50 /* ClickerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickerApp.swift; sourceTree = "<group>"; };
-		57BE90BA27B3C0C1007D4A50 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		57BE90BA27B3C0C1007D4A50 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		57BE90BC27B3C0C7007D4A50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57BE90BF27B3C0C7007D4A50 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		57BE90C827B51F98007D4A50 /* BestScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestScoreView.swift; sourceTree = "<group>"; };
 		57BE90CA27B52A3E007D4A50 /* ScoreInProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreInProgressView.swift; sourceTree = "<group>"; };
 		57BE90CC27B52AFD007D4A50 /* GameInProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInProgressView.swift; sourceTree = "<group>"; };
+		57CA730C27E9E793007F14C6 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +47,7 @@
 		5795C5C627E100B40069CB63 /* ViewsModels */ = {
 			isa = PBXGroup;
 			children = (
+				57CA730C27E9E793007F14C6 /* GameManager.swift */,
 			);
 			path = ViewsModels;
 			sourceTree = "<group>";
@@ -97,7 +100,7 @@
 		57CA730B27E9D5AF007F14C6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				57BE90BA27B3C0C1007D4A50 /* ContentView.swift */,
+				57BE90BA27B3C0C1007D4A50 /* GameView.swift */,
 				57BE90C827B51F98007D4A50 /* BestScoreView.swift */,
 				57BE90CC27B52AFD007D4A50 /* GameInProgressView.swift */,
 				57A6DA9227BEA78D00A90362 /* PlayersListView.swift */,
@@ -177,9 +180,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				57BE90CD27B52AFD007D4A50 /* GameInProgressView.swift in Sources */,
+				57CA730D27E9E793007F14C6 /* GameManager.swift in Sources */,
 				57BE90CB27B52A3E007D4A50 /* ScoreInProgressView.swift in Sources */,
 				57BE90C927B51F98007D4A50 /* BestScoreView.swift in Sources */,
-				57BE90BB27B3C0C1007D4A50 /* ContentView.swift in Sources */,
+				57BE90BB27B3C0C1007D4A50 /* GameView.swift in Sources */,
 				57A6DA9027BE908E00A90362 /* Player.swift in Sources */,
 				57A6DA9327BEA78D00A90362 /* PlayersListView.swift in Sources */,
 				57BE90B927B3C0C1007D4A50 /* ClickerApp.swift in Sources */,
