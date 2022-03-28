@@ -14,10 +14,15 @@ struct GameView: View {
 
     @StateObject var gameManager = GameManager()
 
+    var isOnFire: Bool {
+        guard let bestScore = gameManager.bestScoreGame?.score else { return false }
+        return numberOfClick > bestScore
+    }
+
     var body: some View {
         VStack {
-            if gameManager.bestScore > 0 {
-                BestScoreView(title: "Meilleur Score", bestScore: gameManager.bestScore, playerNameBestScore: gameManager.playerBestScoreName)
+            if isOnFire {
+                BestScoreView(title: "Meilleur Score", bestScore: gameManager.bestScoreGame!.score, playerNameBestScore: gameManager.bestScoreGame!.name)
             }
             if gameIsInProgress {
                 Text("Joueur actuel : \(currentPlayer)")

@@ -7,17 +7,13 @@
 
 import Foundation
 
-    class GameManager: ObservableObject {
+class GameManager: ObservableObject {
 
-    @Published var bestScore = 0
-    @Published var playerBestScoreName = ""
     @Published var playerList: [Player] = []
+    var bestScoreGame: Player? { playerList.first }
 
     func gameDidFinish(click: Int, player: String) {
-        if click >= bestScore {
-            bestScore = click
-            playerBestScoreName = player
-        }
+        objectWillChange.send()
         playerList.append(Player(name: player, score: click))
         playerList.sort { result1, result2 in
             result1.score > result2.score
@@ -25,7 +21,7 @@ import Foundation
     }
 
     func removePlayerList() {
-        bestScore = 0
+        objectWillChange.send()
         playerList.removeAll()
     }
 }
